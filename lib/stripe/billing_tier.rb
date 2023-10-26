@@ -8,10 +8,10 @@ module Stripe
         message: 'one of `flat_amount` or `unit_amount` must be specified!'
       validates_presence_of :unit_amount, if: ->(tier) { tier.flat_amount.nil? },
         message: 'one of `flat_amount` or `unit_amount` must be specified!'
-      validates_absence_of :flat_amount, if: ->(tier) { tier.unit_amount.present? },
-        message: 'only one of `flat_amount` or `unit_amount` should be specified!'
-      validates_absence_of :unit_amount, if: ->(tier) { tier.flat_amount.present? },
-        message: 'only one of `flat_amount` or `unit_amount` should be specified!'
+      #validates_absence_of :flat_amount, if: ->(tier) { tier.unit_amount.present? },
+      #  message: 'only one of `flat_amount` or `unit_amount` should be specified!'
+      #validates_absence_of :unit_amount, if: ->(tier) { tier.flat_amount.present? },
+      #  message: 'only one of `flat_amount` or `unit_amount` should be specified!'
 
       attr_accessor :up_to, :flat_amount, :unit_amount
 
