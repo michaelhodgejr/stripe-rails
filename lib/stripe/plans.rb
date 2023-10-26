@@ -24,7 +24,7 @@ module Stripe
 
       validates_presence_of :id, :currency
       validates_presence_of :amount, unless: ->(p) { p.billing_scheme == 'tiered' }
-      validates_absence_of :transform_usage, if: ->(p) { p.billing_scheme == 'tiered' }
+      #validates_absence_of :transform_usage, if: ->(p) { p.billing_scheme == 'tiered' }
       validates_presence_of :tiers_mode, if: ->(p) { p.billing_scheme == 'tiered' }
       validates_inclusion_of  :interval,
                               in: %w(day week month year),
