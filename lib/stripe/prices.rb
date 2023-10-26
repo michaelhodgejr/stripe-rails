@@ -25,7 +25,7 @@ module Stripe
 
       validates_presence_of :id, :currency
       validates_presence_of :unit_amount, unless: ->(p) { p.billing_scheme == 'tiered' }
-      validates_absence_of :transform_quantity, if: ->(p) { p.billing_scheme == 'tiered' }
+      #validates_absence_of :transform_quantity, if: ->(p) { p.billing_scheme == 'tiered' }
       validates_presence_of :tiers_mode, :tiers, if: ->(p) { p.billing_scheme == 'tiered' }
 
       validates_numericality_of :recurring_interval_count, allow_nil: true
